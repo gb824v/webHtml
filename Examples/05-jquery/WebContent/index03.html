@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" language="javascript">
+
+            $(function() {
+                $(".clickme").click(function (e) {
+                    $("div", this).replaceWith("<h1>JQuery is Great</h1>");
+                    $(this).removeClass();
+                });
+            });
+
+        </script>
+        <style type="text/css">
+            .square { margin:10px;
+                      padding:12px;
+                      border:2px solid #666;
+                      width:60px;
+            }
+            .blue {
+                background-color:blue;
+                color: white;
+            }
+            .clickme {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Click on the square below:</p>
+        <div class="clickme">
+            <div class="blue square">
+                This is a Blue Square!!
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="clickme">
+            <div class="blue square">
+                This is a Blue Square!!
+            </div>
+        </div>
+
+        <a href="index.html">Home</a>
+
+    </body>
+</html>

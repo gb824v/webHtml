@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" language="javascript">
+
+            $(function() {
+                // window.setTimeout(myTimerTask, 1000); // for a single timeout event
+                window.setInterval(myTimerTask, 1000); // for periodical timeout events
+            });
+
+            function myTimerTask() {
+                console.log(document.forms.nameForm.name.value);
+                jQuery.ajax({
+                    data: "name=" + $("#nameInput").val(),
+                    url: "SimpleAjaxResponse",
+                    timeout: 2000,
+                    error: function() {
+                        console.error("Failed to send ajax");
+                    },
+                    success: function(response) {
+                        console.log("GOT ajax: " + response);
+                        $("#ajaxcontent").append(response+'<br/>');
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <p>A timer will invoke an Ajax call and add the result to screen, below</p>
+
+        <form name="nameForm">
+            <input id= "nameInput" type="text" name="name"/>
+        </form>
+
+        <div id="ajaxcontent">
+        </div>
+
+        <br/>
+        <a href="index.html">Home</a>
+
+    </body>
+</html>

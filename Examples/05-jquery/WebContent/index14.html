@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript"
+        src="jquery-2.0.3.min.js"></script>
+
+        <script type="text/javascript" language="javascript">
+            // let's start the jQuery while I wait.
+            // step 1: onload - capture the submit event on the form.
+            $(function() { // onload...do
+                $("#addForm").submit(function() {
+                    // now we're going to capture *all* the fields in the
+                    // form and submit it via ajax.
+
+                    // :input is a macro that grabs all input types, select boxes
+                    // textarea, etc.  Then using the context of the form from
+                    // the initial '#contactForm' to narrow down our selector
+                    //          var inputs = [];
+                    //          $(":input", this).each(function() {
+                    //            inputs.push(this.name + '=' + escape(this.value));
+                    //          });
+                    //	  var parameters = inputs.join('&');
+
+                    var parameters = $(this).serialize();
+
+                    // now if I join our inputs using '&' we'll have a query string
+                    $.ajax({
+                        data: parameters,
+                        url: this.action,
+                        timeout: 2000,
+                        error: function() {
+                            console.error("Failed to submit");
+                            $("#result h1").text("Failed to get result from server");
+                        },
+                        success: function(r) {
+                            $("#result h1").text(r);
+                        }
+                    });
+
+                    // return value of the submit operation
+                    // by default - we'll always return false so it doesn't redirect the user.
+                    return false;
+                })
+            })
+        </script>
+
+    </head>
+    <body>
+        <form id="addForm" action="LogicServlet">
+            <input type="text" name="a"/>
+            <span>-</span>
+            <input type="text" name="b"/>
+            <input type="submit"/>
+        </form>
+
+        <div id="result">
+            <h1></h1>
+        </div>
+
+        <a href="index.html">Home</a>
+
+    </body>
+</html>

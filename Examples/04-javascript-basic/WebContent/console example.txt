@@ -1,0 +1,25 @@
+//www.att.com
+var home = document.getElementsByClassName("dmg-active-route")[0];
+home.text = 'Bazinga!'
+
+//classes
+//define a new class
+function Player (name, age){
+    this.name = name;
+    this.age = age;
+
+    this.details = function(){
+      //.. this.
+    }
+};
+
+//add methods to it (notice the prototype) 
+Player.prototype.print = function(){
+    console.log ("Name = " + this.name + ", age = " + this.age);
+}
+
+//instanticate a new instance
+var jony = new Player("Jony", 35);
+
+//call a method
+jony.print();

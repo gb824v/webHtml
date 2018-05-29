@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" language="javascript">
+
+            $(function() {
+
+                $("div.square").click(function () {
+                    //         var oldColor,
+                    //                    newColor;
+                    //         if($(this).hasClass("Blue")) {
+                    //             oldColor = "Blue";
+                    //             newColor = "Red";
+                    //         }
+                    //         else {
+                    //             oldColor = "Red";
+                    //             newColor = "Blue";
+                    //         }
+                    //        $(this).removeClass(oldColor);
+                    //        $(this).addClass(newColor);
+                    //        $(this).text("This is a " + newColor + " square");
+                    $(this).toggleClass("red").toggleClass("blue");
+                });
+
+            });
+
+        </script>
+        <style type="text/css">
+            .square {
+                margin:10px;
+                padding:12px;
+                border:2px solid #666;
+                width:60px;
+            }
+            .blue {
+                background-color: blue;
+                color: white;
+            }
+            .red {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Click on the square below:</p>
+        <div class="blue square">
+            This is a Blue Square!!
+        </div>
+
+        <a href="index.html">Home</a>
+
+    </body>
+</html>

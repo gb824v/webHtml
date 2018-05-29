@@ -1,0 +1,19 @@
+body {
+	background-image: url("images/background.jpg");
+	}
+h1 {
+	background-color: green;
+	color: rgb(250, 200, 250); /* pink */
+	font-family: cursive;
+}
+p {
+	background-color: yellow;
+	color: purple;
+	font-size: 200%;
+}
+
+div {
+border: 5px solid red;
+}
+
+

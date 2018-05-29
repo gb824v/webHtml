@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" language="javascript">
+
+            $(function() {
+                // window.setTimeout(myTimerTask, 1000); // for a single timeout event
+                window.setInterval(myTimerTask, 1000); // for periodical timeout events
+            });
+
+            function myTimerTask() {
+                $.ajax({
+                    data: "",  // no data - can be ommitted
+                    url: "ColorAjaxResponse",
+                    timeout: 2000,
+                    error: function() {
+                        console.error("Failed to send ajax");
+                    },
+                    success: function(objectsDataArray) {
+			$('#box-container').children().remove();
+			$.each(objectsDataArray || [], createBox);
+                    }
+                });
+            }
+
+            //{color: "" ; height: ""}
+            function createBox(index, dataJson) {
+                var newBox = $("<div>")
+		.addClass(dataJson.color)
+		.addClass("square").text(dataJson.height);
+		$('#box-container').append(newBox);
+            }
+
+        </script>
+        <style type="text/css">
+            .square {
+                margin:10px;
+                padding:12px;
+                border:2px solid #666;
+                width:60px;
+		display: inline-block;
+            }
+            .blue {
+                background-color: blue;
+            }
+            .red {
+                background-color: red;
+            }
+            .green {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Square below will change automatically, please be patient...</p>
+        <div id="box-container">
+        </div>
+
+        <a href="index.html">Home</a>
+
+    </body>
+</html>

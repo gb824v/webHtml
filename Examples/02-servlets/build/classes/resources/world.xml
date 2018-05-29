@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<countries>
+  <country continent="Asia">
+    <name>Israel</name>
+    <population year="2001">6,199,008</population>
+    <city capital="yes">
+		<name>Jerusalem</name>
+	</city>
+    <city>
+		<name>Ashdod</name>
+	</city>
+  </country>
+  <country continent="Europe">
+    <name>France</name>
+    <population year="2004">60,424,213</population>
+  </country>
+</countries>

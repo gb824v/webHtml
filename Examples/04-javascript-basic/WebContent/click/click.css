@@ -1,0 +1,21 @@
+td {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid blue;
+}
+
+td:hover{
+  background-color: lightblue;
+}
+
+.redborder {
+    background-color: red;
+    color: white;
+}
+
+.blueborder {
+    background-color: blue;
+    color: white;
+}
