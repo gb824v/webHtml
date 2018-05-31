@@ -15,3 +15,5 @@
 *.class
 *.bin
 
+/Examples/02-servlets/build/classes/examples/calculator/CalculatorServlet.class
+/Examples/02-servlets/.classpath
