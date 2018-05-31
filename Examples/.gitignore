@@ -12,7 +12,7 @@
 *.iml
 /main/.idea
 *.out
-*.class
+**/class/**
 *.bin
 
 /Examples/02-servlets/build/classes/examples/calculator/CalculatorServlet.class
