@@ -27,7 +27,8 @@ public class CalculatorServlet extends HttpServlet {
 	private Calculator calculator = new Calculator();
 	private String calculationResult = "0";
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html");
 		processParameters(request.getParameterMap());
 		try (PrintWriter out = response.getWriter()) {
@@ -35,10 +36,11 @@ public class CalculatorServlet extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
+
 	private void processParameters(Map<String, String[]> parameterMap) {
 		if (parameterMap.containsKey(NUMBER_PARAM)) {
 			Double number = Double.parseDouble(parameterMap.get(NUMBER_PARAM)[0]);
