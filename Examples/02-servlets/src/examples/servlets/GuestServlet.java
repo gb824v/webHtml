@@ -1,9 +1,7 @@
 package examples.servlets;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "GuestServlet", urlPatterns = "/guestslist")
 public class GuestServlet extends HttpServlet {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private static final String GUEST_NAME_PARAMETER = "guest";
+	private static final String GUEST_NAME_PARAMETER = "guest";
     
     private List<String> guestsList;
 

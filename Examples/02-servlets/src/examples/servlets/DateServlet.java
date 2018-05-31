@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "DateServlet", urlPatterns = "/date")
 public class DateServlet extends HttpServlet {
-
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *

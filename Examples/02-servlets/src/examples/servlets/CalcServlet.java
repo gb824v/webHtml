@@ -11,7 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CalcServlet", urlPatterns = "/calc")
 public class CalcServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String param1Name = "x1";
+	private String param2Name = "x2";
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,9 +35,10 @@ public class CalcServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		String x1ParamStr = request.getParameter(param1Name);
-		String x2ParamStr = request.getParameter("x2");
+		String x2ParamStr = request.getParameter(param2Name);
 		String result = null;
 		String error = null;
+		//if i have 2 values
 		if (x1ParamStr != null && x2ParamStr != null && !x1ParamStr.isEmpty() && !x2ParamStr.isEmpty()) {
 			try {
 				int x1 = Integer.parseInt(x1ParamStr);
@@ -41,7 +47,6 @@ public class CalcServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				error = "Must enter numbers";
 			}
-
 		}
 		try (PrintWriter out = response.getWriter()) {
 			out.println("<html>");
@@ -53,7 +58,7 @@ public class CalcServlet extends HttpServlet {
 				String operatorSign = "+";
 				out.println("<h2>" + x1ParamStr + operatorSign + x2ParamStr + " = " + result + "</h2>");
 			}
-
+			//Form "<form action='calc'>" -->  urlPatterns = "/calc"
 			out.println("<form action='calc'>");
 			out.println("    <input type='text' name='" + param1Name + "' value='" + x1ParamStr + "'/>");
 			out.println("     +");
